@@ -38,19 +38,19 @@ jobs:
 
       # Construccion de imagenes
       - name: Build image Client
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/appm1:client .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/class:client .
         working-directory: MicroserviceClient
         
       - name: Build image config
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/appm1:config .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/class:config .
         working-directory: MicroserviceConfig
         
       - name: Build image eureka
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/appm1:eureka .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/class:eureka .
         working-directory: MicroserviceEureka
 
       - name: Build image item
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/appm1:item .
+        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/class:item .
         working-directory: MicroserviceItem
 
 
@@ -66,7 +66,7 @@ jobs:
       #Envio de imagenes a docker hub
       - name: Push Docker image to Docker Hub
         run: |
-          docker push ${{ secrets.DOCKER_USERNAME }}/appm1:client
-          docker push ${{ secrets.DOCKER_USERNAME }}/appm1:config
-          docker push ${{ secrets.DOCKER_USERNAME }}/appm1:eureka
-          docker push ${{ secrets.DOCKER_USERNAME }}/appm1:item
+          docker push ${{ secrets.DOCKER_USERNAME }}/class:client
+          docker push ${{ secrets.DOCKER_USERNAME }}/class:config
+          docker push ${{ secrets.DOCKER_USERNAME }}/class:eureka
+          docker push ${{ secrets.DOCKER_USERNAME }}/class:item
